@@ -1,4 +1,4 @@
-# Acervo de Textos
+# Acervo de Textos 
 
 [![React](https://img.shields.io/badge/React-17.0.2-blue)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.4.3-blue)](https://www.typescriptlang.org/)
