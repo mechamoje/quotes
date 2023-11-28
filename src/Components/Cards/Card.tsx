@@ -1,11 +1,13 @@
 
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import { Texts } from '../../Assets/Texts/texts'
 import { colors, fonts } from '../../Assets/tokens';
 import Heart from '../../Assets/Images/Heart'
 import Eye from '../../Assets/Images/Eye'
 import React from 'react';
+import { get } from 'http';
 
 
 interface CardProps {
@@ -23,7 +25,7 @@ interface CardProps {
 const Card: FC<CardProps> = ({
     content,
     feeling,
-    fillHeart,
+    fillHeart = false,
     Author,
     showAuthor = false,
     Title,
@@ -32,12 +34,33 @@ const Card: FC<CardProps> = ({
     showFullText = false
 }) => {
 
+    const [quotes, setQuotes] = useState<any[]>([]);
+
+    async function getQuotes() {
+        try {
+            const response = await fetch('http://127.0.0.1:3003/quotes/');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const quotesData = await response.json();
+            return quotesData;
+        } catch (error) {
+            console.error('Error fetching quotes:', error);
+            return [];
+        }
+    }
+
+    useEffect(() => {
+        getQuotes().then((quotesData) => {
+            setQuotes(quotesData);
+        });
+    }, []);
+    const filteredQuotes = feeling ? quotes.filter(text => text.feeling === feeling) : quotes;
+
     const [heartStates, setHeartStates] = useState<{ [key: string]: boolean }>(
-        Texts.reduce((obj, text) => ({ ...obj, [text.id]: false }), {})
+        quotes.reduce((obj, text) => ({ ...obj, [text.id]: false }), {})
+
     );
-
-    const filteredTexts = feeling ? Texts.filter(text => text.feeling === feeling) : Texts;
-
 
     const handleHeartClick = (text: any) => {
         setHeartStates((prevState) => ({
@@ -46,28 +69,25 @@ const Card: FC<CardProps> = ({
         }));
     };
 
-    const handleEyeClick = (text: any) => {
-        return text.id
-        // mandar id para texto a ser exibido
-    };
-
     return (
         <>
             {
-                filteredTexts.map((text) => (
-                    <React.Fragment key={text.id}>
+                filteredQuotes.map((quote) => (
+                    <React.Fragment key={quote.id}>
                         <Article>
-                            <ArticleTopTitle TitlePosition={TitlePosition}> {text.title} </ArticleTopTitle>
+                            <ArticleTopTitle TitlePosition={TitlePosition}> {quote.title} </ArticleTopTitle>
                             <ArticleContent>
-                                {showFullText ? text.text : text.text.slice(0, 175) + '...'}
+                                {showFullText ? quote.body_text : quote.body_text.slice(0, 200) + '...'}
                             </ArticleContent>
-                            <ArticleAuthor showAuthor={showAuthor}> {text.author} </ArticleAuthor>
+                            <ArticleAuthor showAuthor={showAuthor}> {quote.author} </ArticleAuthor>
                         </Article>
                         <ButtonsContainer TitlePosition={TitlePosition} className="icon">
-                            <ArticleBottomTitle TitlePosition={TitlePosition}> {text.title} </ArticleBottomTitle>
-                            <IconContainer showEye={showEye}>
-                                <Heart onClick={() => handleHeartClick(text)} fillHeart={heartStates[text.id]} />
-                                <Eye onClick={() => handleEyeClick(text)} />
+                            <ArticleBottomTitle TitlePosition={TitlePosition}> {quote.title} </ArticleBottomTitle>
+                            <IconContainer>
+                                <Heart onClick={() => handleHeartClick(quote)} fillHeart={heartStates[quote.id]} />
+                                <Link to={`/text/${quote.id}`}>
+                                    <Eye />
+                                </Link>
                             </IconContainer>
                         </ButtonsContainer>
                     </React.Fragment>
@@ -124,19 +144,14 @@ const ButtonsContainer = styled.span<{
 
 `
 
-const IconContainer = styled.span<{
-    showEye: boolean;
-}>`
+const IconContainer = styled.span`
     display: flex;
+    gap: 0.8em;
     
     svg {
     width: 28px;
     height: 28px;
 }   
-    
-    ${props => props.showEye ? 'svg:nth-child(2){display: flex; margin-left: 12px;}' : 'svg:nth-child(2){display: none}'}
-
-
 `
 
 

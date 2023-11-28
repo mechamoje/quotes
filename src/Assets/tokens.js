@@ -7,11 +7,11 @@ export const fonts = {
   // usado para o título do card grande e dentro das paginas ex.: Outros textos, Para você hoje:
   BigCardandPageTitle: () => `
         font-weight: 600;
-        font-size: 20px; 
+        font-size: 18px; 
     `,
   // usado para os autores do card grande
   Authors: () => `
-        font-weight: 500;
+        font-weight: 550;
         font-size: 14px;   
         text-transform: uppercase; 
     `,
