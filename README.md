@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Acervo de Textos 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-17.0.2-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.4.3-blue)](https://www.typescriptlang.org/)
+[![Styled Components](https://img.shields.io/badge/Styled%20Components-5.3.1-purple)](https://styled-components.com/)
 
-## Available Scripts
+Bem-vindo ao Acervo de Textos! 
+Este projeto foi desenvolvido do zero por mim durante o Programa Desenvolve da Alura em parceria com o Grupo Botícario, com o objetivo de fornecer aos usuários uma seleção de textos escritos por autores anônimos, baseado no emoji que representa seu sentimento no dia.
 
-In the project directory, you can run:
+## Funcionalidades do Projeto
 
-### `npm start`
+- Seleção de emoji para representar o sentimento do usuário.
+- Visualização de textos relacionados ao emoji selecionado.
+- Possibilidade de favoritar textos.
+- Acesso à página de favoritos.
+- Exploração de outros textos disponíveis no acervo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias Utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React JS
+- TypeScript
+- Styled Components
 
-### `npm test`
+## Em Desenvolvimento
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este projeto ainda está em processo de desenvolvimento e algumas funcionalidades podem estar incompletas ou não implementadas. Estamos trabalhando para aprimorar a experiência do usuário e adicionar novos recursos ao acervo de textos.
 
-### `npm run build`
+## Como Executar o Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Certifique-se de ter o Node.js instalado em sua máquina.
+2. Clone este repositório para o seu ambiente local.
+3. Acesse a pasta do projeto e execute o comando `npm install` ou `yarn install` para instalar as dependências.
+4. Após a conclusão da instalação, execute o comando `npm start` ou `yarn start` para iniciar o servidor de desenvolvimento.
+5. Abra o navegador e acesse `http://localhost:3000` para visualizar o projeto em execução.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contribuindo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Você é bem-vindo(a) para contribuir com este projeto! Caso tenha sugestões, correções ou queira adicionar novas funcionalidades, fique à vontade para abrir uma issue ou enviar um pull request neste repositório.
 
-### `npm run eject`
+## Sobre o Autor
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Este projeto foi idealizado e desenvolvido por mim, Jéssica Ferreira, como parte do meu aprendizado e prática em React JS, TypeScript, Styled Components e Figma durante a trilha fullstack do Programa Desenvolve. Estou sempre buscando melhorar minhas habilidades de desenvolvimento e adquirir novos conhecimentos na área.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
