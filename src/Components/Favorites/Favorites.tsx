@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import Header from '../Header/Header';
 
 interface FavoritesProps { }
 
@@ -25,8 +26,11 @@ const Favorites: FC<FavoritesProps> = () => {
         });
     }, []);
 
+    console.log(favorites);
+
     return (
         <>
+            <Header></Header>
             <div>Favorites:</div>
             <ul>
                 {favorites.map((favorite) => (

@@ -9,6 +9,8 @@ import BigCard from './Components/Cards/Card';
 import ForYouPage from './Components/Pages/Foryou/foryou';
 import Fulltext from './Components/Fulltext/fulltext';
 import Alltexts from './Components/Alltexts/alltexts';
+import LoginForm from './Components/Login/Loginform';
+import CreateAccount from './Components/Login/CreateAccount';
 
 
 const root = ReactDOM.createRoot(
@@ -25,6 +27,8 @@ root.render(
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/text/*' element={<Fulltext />} />
           <Route path='/alltexts' element={<Alltexts />} />
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/signup' element={<CreateAccount />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

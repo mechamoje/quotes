@@ -55,6 +55,7 @@ const Card: FC<CardProps> = ({
             setQuotes(quotesData);
         });
     }, []);
+
     const filteredQuotes = feeling ? quotes.filter(text => text.feeling === feeling) : quotes;
 
     const [heartStates, setHeartStates] = useState<{ [key: string]: boolean }>(
@@ -67,6 +68,7 @@ const Card: FC<CardProps> = ({
             ...prevState,
             [text.id]: !prevState[text.id]
         }));
+
     };
 
     return (

@@ -60,20 +60,22 @@ function FullText() {
     return (
         <FullTextContainer>
             <Header></Header>
-            <Article>
-                <h1>{text?.title}</h1>
-                <p>{text?.body_text}</p>
-                <ArticleAuthor> {text?.authors[0].name} </ArticleAuthor>
-            </Article>
-            <IconContainer>
-                <Heart onClick={handleHeartClick} fillHeart={text ? heartState[text.id.toString()] : false} />
-            </IconContainer>
-            <OtherTextsContainer>
-                <Link to="/alltexts" style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', alignItems: 'center' }}>
-                    <Books />
-                    <h3 style={{ color: '#000' }}>Outros textos</h3>
-                </Link>
-            </OtherTextsContainer >
+            <TextContainer>
+                <Article>
+                    <h1>{text?.title}</h1>
+                    <p>{text?.body_text}</p>
+                    <ArticleAuthor> {text?.authors[0].name} </ArticleAuthor>
+                </Article>
+                <IconContainer>
+                    <Heart onClick={handleHeartClick} fillHeart={text ? heartState[text.id.toString()] : false} />
+                </IconContainer>
+                <OtherTextsContainer>
+                    <Link to="/alltexts" style={{ display: 'flex', textDecoration: 'none', flexDirection: 'column', alignItems: 'center' }}>
+                        <Books />
+                        <h3 style={{ color: '#000' }}>Outros textos</h3>
+                    </Link>
+                </OtherTextsContainer >
+            </TextContainer>
         </FullTextContainer>
 
     )
@@ -103,9 +105,12 @@ const ArticleAuthor = styled.span`
     margin-top: 20px;
 `
 
+const TextContainer = styled.section`
+    padding-inline: 15px;
+`
+
 const FullTextContainer = styled.div`
     ${fonts.Authors};
-
     width: 100%;
 `
 

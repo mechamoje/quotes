@@ -8,6 +8,8 @@ import Smile from '../../Assets/Images/Smile';
 import Reflexive from '../../Assets/Images/Reflexive';
 import styled from 'styled-components'
 import { Link, useParams } from 'react-router-dom';
+import { fonts } from '../../Assets/tokens';
+import Heart from '../../Assets/Images/Heart';
 
 const rabeca = require('../../Assets/Images/rabeca.png');
 
@@ -25,7 +27,7 @@ const Homepage: FC<HomepageProps> = ({ }) => {
       <HomepageTextContainer>
         <h2> Como você está se sentindo? </h2>
         <p> Iremos recomendar o melhor texto para você, baseado nas suas respostas. </p>
-        <Link to={'/authors'}> Authors </Link> <Link to={'/favorites'}> My favorites </Link>
+
       </HomepageTextContainer>
       <EmojisContainer>
         <Link to={`/foryou/Angry`}>
@@ -47,6 +49,7 @@ const Homepage: FC<HomepageProps> = ({ }) => {
           <Reflexive />
         </Link>
       </EmojisContainer>
+      <Link to={'/favorites'}> <Heart fillHeart={true} /> </Link>
       <FooterContainer>
         <img alt='sad' src={rabeca} />
       </FooterContainer>
@@ -58,11 +61,19 @@ const Homepage: FC<HomepageProps> = ({ }) => {
 export default Homepage;
 
 const HomepageContainer = styled.section`
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   gap: 2rem;
+
+  a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px; 
+  }
 `
 
 const FooterContainer = styled.footer` 
@@ -87,6 +98,7 @@ const FeelingsImage = styled.img`
 
 const HomepageTextContainer = styled.article`
   text-align: center;
+  padding-inline: 15px;
 `
 
 const EmojisContainer = styled.div`
